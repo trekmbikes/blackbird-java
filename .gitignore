@@ -1,0 +1,7 @@
+/target/
+*.log
+/blackbird.db
+/output
+/blackbird-save.json
+/src/test/resources/blackbird-test.conf
+/src/main/bin/blackbird.conf

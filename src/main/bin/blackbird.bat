@@ -1,0 +1,1 @@
+java -cp lib/* com.slickapps.arbitrage.Main %~dp0

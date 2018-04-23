@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%msg%n" />
+		</Console>
+		<RollingFile name="LogFile" fileName="output/blackbird.log"
+			filePattern="output/blackbird-%d{MM-dd-yyyy}.log.gz" ignoreExceptions="false">
+			<PatternLayout>
+				<Pattern>%m%n</Pattern>
+			</PatternLayout>
+			<TimeBasedTriggeringPolicy />
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="org.knowm.xchange" level="WARN" />
+		<Logger name="com.slickapps" level="INFO" />
+		<Root level="INFO">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="LogFile" />
+		</Root>
+	</Loggers>
+</Configuration>

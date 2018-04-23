@@ -1,0 +1,212 @@
+DemoMode=false
+DebugMaxRuntimeSeconds=
+
+# Log verbose info every X millis
+InfoLoggerPeriodMillis=3000
+Verbose=true
+
+FileSaveEnabled=false
+
+# --------- Strategy parameters
+
+# A comma-separated list of equivalent currencies, separated by colons; remove USDT to disable tether 
+EquivalentCurrencies=USD:USDT
+
+# This is the minimum percentage profit we will achieve; the real world profit may be higher
+# if we consider trailing spread logic
+TargetProfitPercentage=10
+
+MaxLimitPriceDifference=10
+TrailingSpreadLim=0.05
+TrailingRequiredConfirmationPeriods=1
+OrderBookFactor=3.0
+
+# calculate our average spreads between exchanges using values from the last 2 hours
+SpreadAverageWindowLengthSeconds=7200
+# This needs to be zero for unit tests
+SpreadWindowValidAfterSeconds=0
+
+# Volatility not yet implemented
+UseVolatility=false
+VolatilityPeriod=600
+
+# Max currencies allowed at program start. These are dynamic, add new as needed
+MaxInitialCurrencyBCH=0.01
+MaxInitialCurrencyBTC=0.001
+MaxInitialCurrencyDASH=0.01
+MaxInitialCurrencyETC=0.1
+MaxInitialCurrencyETH=0.01
+MaxInitialCurrencyLTC=0.1
+MaxInitialCurrencyXMR=0.1
+MaxInitialCurrencyXRP=0.1
+MaxInitialCurrencyZEC=0.01
+
+MaxTransactionAmountBCH/USD=100
+MaxTransactionAmountBTC/USD=180
+MaxTransactionAmountDASH/USD=100
+MaxTransactionAmountETC/USD=100
+MaxTransactionAmountETH/USD=100
+MaxTransactionAmountLTC/USD=100
+MaxTransactionAmountXMR/USD=100
+MaxTransactionAmountXRP/USD=100
+MaxTransactionAmountZEC/USD=100
+
+MaxExposureUSD=550.00
+
+# Allow for a quote time difference up to 6 seconds between exchanges
+MaxQuoteTimeDifferenceMillis=6000
+
+# Allow orders to take up to 5 minutes to be filled - Kraken is particularly slow.
+# We perform limit calculations in the hopes that they are filled immediately
+OrderCompletionMaxExecutionMillis=300000
+
+# Email settings
+SendEmail=true
+SenderAddress=ReplaceMe
+SenderUsername=ReplaceMe
+SenderPassword=ReplaceMe
+ReceiverAddress=ReplaceMe
+mail.smtp.host=smtp.gmail.com
+mail.smtp.socketFactory.port=465
+mail.smtp.socketFactory.class=javax.net.ssl.SSLSocketFactory
+mail.smtp.auth=true
+mail.smtp.port=465
+
+# Database settings
+DbFile=blackbird.db
+
+# ------------------------------- Exchanges (alphabetical order)
+
+# Binance
+BinanceEnabled=false
+BinanceApiKey=ReplaceMe
+BinanceSecretKey=ReplaceMe
+# see https://support.binance.com/hc/en-us/articles/115000429332-Fee-Structure-on-Binance
+BinanceFeePercentage=0.1
+# This rate limit is returned by the API's getExchangeInfo call
+Binance10mRateLimit=600
+BinanceCurrencyPairs=BCC/USDT,BNB/USDT,BTC/USDT,ETH/USDT,LTC/USDT,NEO/USDT
+
+# Bitfinex
+# Disabled for US users
+BitfinexEnabled=false
+BitfinexApiKey=ReplaceMe
+BitfinexSecretKey=ReplaceMe
+BitfinexFeePercentage=0.20
+Bitfinex10mRateLimit=600
+
+# Bitstamp
+BitstampEnabled=false
+BitstampUserId=ReplaceMe
+BitstampApiKey=ReplaceMe
+BitstampSecretKey=ReplaceMe
+BitstampFeePercentage=0.25
+Bitstamp10mRateLimit=600
+BitstampCurrencyPairs=BTC/USD, ETH/USD, LTC/USD, XRP/USD
+
+# Bittrex
+BittrexEnabled=false
+BittrexApiKey=ReplaceMe
+BittrexSecretKey=ReplaceMe
+BittrexFeePercentage=0.20
+Bittrex10mRateLimit=300
+BittrexCurrencyPairs=BTC/USDT, ETH/USDT, LTC/USDT, XRP/USDT, DASH/USDT, ZEC/USDT
+
+# BTCe
+BTCeEnabled=false
+BTCeApiKey=ReplaceMe
+BTCeSecretKey=ReplaceMe
+BTCeFeePercentage=0.20
+
+# Cex
+CexEnabled=false
+CexUserId=up110579578
+CexApiKey=ReplaceMe
+CexSecretKey=ReplaceMe
+CexFeePercentage=0.20
+Cex10mRateLimit=600
+CexCurrencyPairs=BTC/USD, ETH/USD, BCH/USD, DASH/USD, ZEC/USD
+
+# GDAX
+GDAXEnabled=false
+GDAXUserId=ReplaceMe
+GDAXApiKey=ReplaceMe
+GDAXSecretKey=ReplaceMe
+GDAXFeePercentage=0.25
+
+# Gemini
+GeminiEnabled=false
+GeminiApiKey=ReplaceMe
+GeminiSecretKey=ReplaceMe
+GeminiFeePercentage=0.25
+Gemini10mRateLimit=600
+GeminiCurrencyPairs=BTC/USD
+# , ETH/USD
+
+# HitBTC
+HitBTCEnabled=false
+HitBTCApiKey=ReplaceMe
+HitBTCSecretKey=ReplaceMe
+# TODO figure out the right fee pct
+HitBTCFeePercentage=0.25
+HitBTCWalletName=Trading
+# No limit defined - once per second seems reasonable - https://forum.hitbtc.com/discussion/24/api-max-request-amount
+HitBTC10mRateLimit=600
+# HitBTC exposes USDT balance as simply "USD"
+HitBTCCurrencyPairs=BTC/USD
+HitBTCMinimumOrderQuantityBTC=0.01
+
+# ItBit
+ItBitEnabled=false
+ItBitApiKey=ReplaceMe
+ItBitSecretKey=ReplaceMe
+ItBitFeePercentage=0.20
+
+# Kraken
+KrakenEnabled=false
+KrakenApiKey=ReplaceMe
+KrakenSecretKey=ReplaceMe
+KrakenFeePercentage=0.25
+Kraken10mRateLimit=200
+KrakenCurrencyPairs=BTC/USD,ETH/USD,ETC/USD,XMR/USD
+KrakenCurrencyPairsShortable=BTC/USD,ETH/USD,ETC/USD,XMR/USD
+# every 3 minutes
+KrakenPositionCleanupIntervalMillis=180000
+KrakenMinimumOrderQuantityBTC=0.002
+KrakenMinimumOrderQuantityETH=0.02
+KrakenMinimumOrderQuantityETC=0.3
+KrakenMinimumOrderQuantityXMR=0.1
+KrakenLeveragesSupportedBTC=2,3,4,5
+KrakenLeveragesSupportedETC=2
+KrakenLeveragesSupportedETH=2,3,4,5
+KrakenLeveragesSupportedXMR=2
+
+# Liqui
+LiquiEnabled=false
+LiquiApiKey=ReplaceMe
+LiquiSecretKey=ReplaceMe
+# TODO figure out the right fee pct
+LiquiFeePercentage=0.25
+# No limit defined - once per second seems reasonable
+Liqui10mRateLimit=600
+LiquiCurrencyPairs=BTC/USDT,LTC/USDT,DASH/USDT,ETH/USDT
+
+# OkCoin
+OkCoinEnabled=false
+OkCoinApiKey=ReplaceMe
+OkCoinSecretKey=ReplaceMe
+OkCoinFeePercentage=0.20
+
+# Poloniex
+# Note: no BTC/USD on Poloniex
+PoloniexEnabled=false
+PoloniexApiKey=ReplaceMe
+PoloniexSecretKey=ReplaceMe
+PoloniexFeePercentage=0.20
+
+# QuadrigaCX
+QuadrigaEnabled=false
+QuadrigaUserId=ReplaceMe
+QuadrigaApiKey=ReplaceMe
+QuadrigaSecretKey=ReplaceMe
+QuadrigaFeePercentage=0.5
